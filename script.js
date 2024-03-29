@@ -17,19 +17,29 @@ function makeGrid(gridSize) {
         row.setAttribute("class", "row");
         grid.appendChild(row);
         for (w = 0; w < gridSize; w++) {
-            let box = document.createElement("div");
+            const box = document.createElement("div");
             box.setAttribute("class", "box");
             let boxPixels = gridPixels / gridSize + "px";
             box.setAttribute("style", "height: " + boxPixels);
-            box.textContent = " ";
-            box.addEventListener("mouseover", () => {
-                box.setAttribute("id", "highlight")
-            })
+            addMouseover(box);
             row.appendChild(box);
         };
     };
 };
 const boxes = document.querySelectorAll("box");
+
+//Create a function for adding mouseover listener to each box in loop
+function addMouseover(box) {
+    box.addEventListener("mouseover", () => {
+        //box.setAttribute("id", "highlight");
+        box.setAttribute("style", `background-color: rgb(${randomRGB()}, ${randomRGB()}, ${randomRGB()})`);
+    });
+};
+
+function randomRGB() {
+    let rgbValue = Math.floor((Math.random()) * 255);
+    return rgbValue;
+} ;
 
 
 //Add a 'click' event listener to resetGrid button

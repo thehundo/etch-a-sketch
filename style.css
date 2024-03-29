@@ -10,7 +10,7 @@
 }
 
 .box {
-    background-color: lightblue;
+    /* background-color: rgb(37, 90, 108); */
     display: flex;
     flex: auto;
 }
